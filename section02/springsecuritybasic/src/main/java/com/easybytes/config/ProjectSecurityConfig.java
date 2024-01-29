@@ -17,6 +17,11 @@ public class ProjectSecurityConfig {
   SecurityFilterChain defaultSecurityFilterChain(HttpSecurity http)
       throws Exception {
 
+    /**
+     * Below is the custom security configurations
+     */
+
+    /*
     http.authorizeHttpRequests(
             (requests) -> requests
                 .requestMatchers(
@@ -32,5 +37,20 @@ public class ProjectSecurityConfig {
         .httpBasic( Customizer.withDefaults() );
 
     return http.build();
+    */
+
+    /**
+     * Configurations to deny all the requests
+     * 참고용
+     */
+
+    http.authorizeHttpRequests(
+            (requests) -> requests.anyRequest().denyAll()
+        )
+        .formLogin( Customizer.withDefaults() )
+        .httpBasic( Customizer.withDefaults() );
+
+    return http.build();
   }
+
 }
