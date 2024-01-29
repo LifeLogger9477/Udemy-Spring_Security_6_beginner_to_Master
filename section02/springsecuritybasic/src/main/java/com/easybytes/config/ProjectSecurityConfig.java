@@ -21,7 +21,6 @@ public class ProjectSecurityConfig {
      * Below is the custom security configurations
      */
 
-    /*
     http.authorizeHttpRequests(
             (requests) -> requests
                 .requestMatchers(
@@ -37,13 +36,14 @@ public class ProjectSecurityConfig {
         .httpBasic( Customizer.withDefaults() );
 
     return http.build();
-    */
 
     /**
      * Configurations to deny all the requests
      * 참고용
+     * Not Recommended for Production
      */
 
+    /*
     http.authorizeHttpRequests(
             (requests) -> requests.anyRequest().denyAll()
         )
@@ -51,6 +51,22 @@ public class ProjectSecurityConfig {
         .httpBasic( Customizer.withDefaults() );
 
     return http.build();
-  }
+    */
 
+    /**
+     * Configurations to permit all the requests
+     * 참고용
+     * Not Recommended for Production
+     */
+
+    /*
+    http.authorizeHttpRequests(
+            (requests) -> requests.anyRequest().permitAll()
+        )
+        .formLogin( Customizer.withDefaults() )
+        .httpBasic( Customizer.withDefaults() );
+
+    return http.build();
+    */
+  }
 }
