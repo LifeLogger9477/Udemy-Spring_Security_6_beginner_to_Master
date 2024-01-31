@@ -19,7 +19,9 @@ public class ProjectSecurityConfig {
   SecurityFilterChain defaultSecurityFilterChain(HttpSecurity http)
       throws Exception {
 
-    http.authorizeHttpRequests(
+    http
+        .csrf( csrf -> csrf.disable())
+        .authorizeHttpRequests(
             (requests) -> requests
                 .requestMatchers(
                     "/myAccount",
@@ -28,7 +30,8 @@ public class ProjectSecurityConfig {
                     "/myCards" ).authenticated()
                 .requestMatchers(
                     "/notices",
-                    "/contact" ).permitAll()
+                    "/contact",
+                    "/register" ).permitAll()
         )
         .formLogin( Customizer.withDefaults() )
         .httpBasic( Customizer.withDefaults() );
