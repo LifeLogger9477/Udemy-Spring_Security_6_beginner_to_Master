@@ -42,7 +42,6 @@ public class ProjectSecurityConfig {
   @Bean
   public PasswordEncoder passwordEncoder() {
 
-    // 보안상 비추
     return new BCryptPasswordEncoder();
   }
 }
