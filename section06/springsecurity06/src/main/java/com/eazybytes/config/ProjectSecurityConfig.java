@@ -27,7 +27,8 @@ public class ProjectSecurityConfig {
                     "/myAccount",
                     "/myBalance",
                     "/myLoans",
-                    "/myCards" ).authenticated()
+                    "/myCards",
+                    "/user").authenticated()
                 .requestMatchers(
                     "/notices",
                     "/contact",
